@@ -1,0 +1,92 @@
+apply plugin: 'com.android.application'
+apply plugin: 'realm-android'
+
+android {
+    lintOptions {
+        abortOnError false
+    }
+    compileSdkVersion 28
+    buildToolsVersion '26.0.3'
+    defaultConfig {
+        applicationId "com.google.android.kk2"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 42
+        versionName "2.0.4"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+        jcenter()
+        google()
+        repositories {
+            maven {
+                url "https://jitpack.io"
+            }
+        }
+    }
+    compileOptions {
+        // This went in on 2019-05-25 because okhttp3-4.0.0-alpha01 contains Java 8 bytecode.
+        // The error message for this kindly offered the alternative of setting minSdkVersion to 26,
+        // which would be pretty not kind to users with slightly older phones, so let's not do that,
+        // and just set these compatibility flags instead.
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+    dexOptions {
+        // This workaround exists to mitigate an error that can be encountered when
+        // generating a signed APK:
+        //   com.android.dex.DexException: Cannot merge new index 65536 into a non-jumbo instruction!
+        jumboMode = true
+    }
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "io.realm:realm-gradle-plugin:4.3.3"
+    }
+}
+
+
+dependencies {
+    implementation 'com.google.firebase:firebase-core:11.0.4'
+    implementation "io.reactivex:rxandroid:1.2.1"
+    implementation "io.reactivex:rxjava:1.1.7"
+    implementation 'com.google.firebase:firebase-messaging:11.0.4'
+    implementation 'com.google.firebase:firebase-crash:11.0.4'
+    implementation 'com.android.support:support-v4:28.0.0'
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:28.0.0'
+    compile 'com.android.support:cardview-v7:28.0.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:design:28.0.0'
+    compile 'com.github.martoreto:aauto-sdk:v4.5'
+    compile 'com.github.zagum:SpeechRecognitionView:1.2.2'
+    testCompile 'junit:junit:4.12'
+    compile 'com.squareup.okhttp3:okhttp:3.9.1'
+    compile 'com.squareup.okio:okio:2.2.2' // Needed as dependency for okhttp3
+    compile 'com.android.support:appcompat-v7:28.0.0'
+    compile 'com.android.support:recyclerview-v7:28.0.0'
+    compile 'com.google.android.exoplayer:exoplayer:2.6.1'
+    compile 'eu.chainfire:libsuperuser:1.0.0.+'
+
+}
+
+
+
+
+apply plugin: 'com.google.gms.google-services'

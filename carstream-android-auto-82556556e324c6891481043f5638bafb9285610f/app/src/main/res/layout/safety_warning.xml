@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/very_dark_gray"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:padding="5dp"
+        android:text="App version"
+        android:id="@+id/app_info_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_car_collision"
+        android:drawablePadding="5dp"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:text="@string/warning_title"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:paddingLeft="20dp"
+        android:ellipsize="end"
+        android:paddingRight="20dp"
+        android:text="@string/warning_body"
+        android:textSize="16sp" />
+
+    <Button
+        android:background="@drawable/highlighting_drawable"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:id="@+id/continue_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        android:focusable="true"
+        android:text="@string/warning_accept_button"
+        android:textSize="30sp" />
+</LinearLayout>

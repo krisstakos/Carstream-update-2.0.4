@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/about"
+        android:title="@string/about_page"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/back"
+        android:title="@string/webview_back"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/refresh"
+        android:title="@string/refresh_page"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/app_info"
+        app:showAsAction="ifRoom"
+        android:title="" />
+    <item
+        android:id="@+id/bookmark_button"
+        android:title="@string/bookmarks"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/settings"
+        android:title="@string/settings"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/unlock"
+        android:title="@string/unlock"
+        app:showAsAction="never" />
+
+</menu>

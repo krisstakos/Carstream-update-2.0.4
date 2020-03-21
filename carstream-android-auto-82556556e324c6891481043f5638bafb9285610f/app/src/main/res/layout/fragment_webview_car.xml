@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_dark">
+
+    <FrameLayout
+        android:id="@+id/full_screen_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.github.zagum.speechrecognitionview.RecognitionProgressView
+                android:id="@+id/speech_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:background="@color/light_gray"
+                android:padding="20dp"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/very_dark_gray"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/back_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/highlighting_drawable"
+                    android:nextFocusDown="@id/web_view"
+                    android:nextFocusRight="@id/home_button"
+                    style="@style/ToolbarButton"
+                    android:src="@drawable/ic_back"
+                    android:text="@string/webview_back" />
+
+                <ImageButton
+                    android:id="@+id/home_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/highlighting_drawable"
+                    android:nextFocusDown="@id/web_view"
+                    android:nextFocusLeft="@id/back_button"
+                    android:nextFocusRight="@id/refresh_button"
+                    style="@style/ToolbarButton"
+                    android:src="@drawable/ic_home"
+                    android:text="@string/home" />
+
+                <ImageButton
+                    android:id="@+id/refresh_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/highlighting_drawable"
+                    android:nextFocusDown="@id/web_view"
+                    android:nextFocusLeft="@id/home_button"
+                    android:nextFocusRight="@id/voice_button"
+                    style="@style/ToolbarButton"
+                    android:src="@drawable/ic_refresh"
+                    android:text="@string/refresh_page" />
+
+                <ImageButton
+                    android:id="@+id/voice_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/highlighting_drawable"
+                    android:nextFocusDown="@id/web_view"
+                    android:nextFocusLeft="@id/refresh_button"
+                    android:nextFocusRight="@id/search_youtube_button"
+                    style="@style/ToolbarButton"
+                    android:src="@drawable/ic_voice_input"
+                    android:text="@string/voice_search" />
+
+
+                <ImageButton
+                    android:id="@+id/search_youtube_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/highlighting_drawable"
+                    android:drawableLeft="@drawable/youtube"
+                    android:nextFocusDown="@id/web_view"
+                    android:nextFocusLeft="@id/voice_button"
+                    android:nextFocusRight="@id/search_google_button"
+                    style="@style/ToolbarButton"
+                    android:src="@drawable/ic_search_youtube"
+                    android:text="@string/search" />
+
+                <ImageButton
+                    android:id="@+id/search_google_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/highlighting_drawable"
+                    android:drawableLeft="@drawable/google"
+                    android:nextFocusDown="@id/web_view"
+                    android:nextFocusLeft="@id/search_youtube_button"
+                    android:nextFocusRight="@id/fullscreen_button"
+                    style="@style/ToolbarButton"
+                    android:src="@drawable/ic_search_google"
+                    android:text="@string/search" />
+
+                <ImageButton
+                    android:id="@+id/fullscreen_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/highlighting_drawable"
+                    android:nextFocusDown="@id/web_view"
+                    android:nextFocusLeft="@id/refresh_button"
+                    android:nextFocusRight="@id/bookmark_button"
+                    style="@style/ToolbarButton"
+                    android:src="@drawable/ic_fullscreen"
+                    android:text="@string/fullscreen" />
+
+                <ImageButton
+                    android:id="@+id/bookmark_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/highlighting_drawable"
+                    android:nextFocusDown="@id/web_view"
+                    android:nextFocusLeft="@id/fullscreen_button"
+                    android:nextFocusRight="@id/aspect_button"
+                    style="@style/ToolbarButton"
+                    android:src="@drawable/ic_bookmarks"
+                    android:text="@string/receive_from_phone" />
+
+                <TextClock
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="@color/very_dark_gray"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:targetApi="jelly_bean_mr1" />
+            </LinearLayout>
+
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:id="@+id/webview_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <com.thekirankumar.youtubeauto2.webview.VideoWebView
+                android:id="@+id/web_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:nextFocusUp="@id/voice_button" />
+
+
+            <ProgressBar
+                android:id="@+id/progress_bar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:indeterminate="true" />
+
+            <com.thekirankumar.youtubeauto2.utils.CarEditText
+                android:id="@+id/fake_edittext"
+                android:layout_width="1px"
+                android:layout_height="1px"
+                android:imeOptions="actionDone"
+                android:visibility="invisible" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fullscreen_corner_controls"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/aspect_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/highlighting_drawable"
+            android:drawableTop="@drawable/ic_aspect_ratio"
+            android:nextFocusLeft="@id/bookmark_button"
+            android:padding="10dp"
+            android:text="contain"
+            android:textSize="10sp" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/overlay_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></FrameLayout>
+
+</FrameLayout>
